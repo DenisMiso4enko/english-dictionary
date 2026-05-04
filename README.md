@@ -1,6 +1,18 @@
-# Welcome to your Expo app 👋
+# Лингво (Expo + Supabase)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Обязательно: база данных Supabase
+
+Ошибка **«Could not find the table 'public.words'…»** значит, что в **вашем** проекте Supabase ещё **нет таблицы** `words`. Код приложения здесь ни при чём.
+
+1. Откройте [Supabase Dashboard](https://supabase.com/dashboard) → **ваш проект** (тот же, чей URL в `EXPO_PUBLIC_SUPABASE_URL` в `my-app/.env`).
+2. **SQL Editor** → New query.
+3. Скопируйте **весь** файл [`docs/supabase-setup.sql`](./docs/supabase-setup.sql) в редактор и нажмите **Run**.
+4. Проверьте **Table Editor** — должна появиться таблица `words`.
+5. Перезапустите приложение (pull-to-refresh на главной или кнопка «Повторить»).
+
+Ключ в `.env` должен быть из **Settings → API** того же проекта (`anon` / publishable).
+
+---
 
 ## Get started
 
@@ -10,7 +22,11 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Env (в каталоге `my-app`)
+
+   Скопируйте `.env.example` в `.env` и подставьте URL и ключ Supabase.
+
+3. Start the app
 
    ```bash
    npx expo start
